@@ -81,6 +81,30 @@ app.post('/api/auth/login', async (req: Request, res: Response) => {
   }
 });
 
+// Get Current User Profile
+app.get('/api/auth/me', async (req: Request, res: Response) => {
+  const token = req.cookies.token;
+  if (!token) return res.json({ user: null });
+  const decoded = verifyToken(token);
+  if (!decoded) return res.json({ user: null });
+  const user = await db.getUserById(decoded.userId);
+  if (!user) return res.json({ user: null });
+  return res.json({
+    user: { id: user.id, name: user.name, email: user.email, role: user.role }
+  });
+});
+
+// Logout User
+app.post('/api/auth/logout', (req: Request, res: Response) => {
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: false,
+    sameSite: 'lax',
+    path: '/'
+  });
+  return res.json({ message: 'Logged out successfully' });
+});
+
 app.listen(PORT, () => {
   console.log(`[StayFinder Server] Running on http://localhost:${PORT}`);
 });
