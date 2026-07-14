@@ -340,8 +340,10 @@ app.post('/api/items', authenticate, async (req: AuthenticatedRequest, res: Resp
       specs 
     } = req.body;
 
+    const finalImageUrl = imageUrl || 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80';
+
     // Form Fields Validation
-    if (!title || !shortDescription || !description || !price || !location || !category || !dateAvailable || !imageUrl) {
+    if (!title || !shortDescription || !description || !price || !location || !category || !dateAvailable) {
       return res.status(400).json({ error: 'Please fill in all required listing inputs' });
     }
 
@@ -359,8 +361,8 @@ app.post('/api/items', authenticate, async (req: AuthenticatedRequest, res: Resp
       location,
       category,
       dateAvailable,
-      imageUrl,
-      images: [imageUrl],
+      imageUrl: finalImageUrl,
+      images: [finalImageUrl],
       ownerId: user.userId,
       ownerName: user.name,
       priority: priority || 'medium',
