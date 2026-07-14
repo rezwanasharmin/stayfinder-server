@@ -450,6 +450,15 @@ app.get('/api/stats', async (req: Request, res: Response) => {
   }
 });
 
+// Welcome / Root Endpoint
+app.get('/', (req: Request, res: Response) => {
+  return res.json({
+    message: 'StayFinder Express API Server is running successfully!',
+    environment: process.env.NODE_ENV || 'production',
+    database: 'MongoDB Atlas (Connected)'
+  });
+});
+
 
 // Start server locally (if not run by Vercel Serverless environment)
 if (!process.env.VERCEL) {
