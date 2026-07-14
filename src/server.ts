@@ -15,6 +15,8 @@ const allowedOrigins = [
   'https://stayfinder-client-alpha.vercel.app'
 ];
 
+const isProd = process.env.NODE_ENV === 'production' || !!process.env.VERCEL;
+
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
@@ -98,8 +100,8 @@ app.post('/api/auth/register', async (req: Request, res: Response) => {
     // Set secure HttpOnly cookie
     res.cookie('token', token, {
       httpOnly: true,
-      secure: false, // Set to true if HTTPS
-      sameSite: 'lax',
+      secure: isProd,
+      sameSite: isProd ? 'none' : 'lax',
       path: '/',
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
@@ -149,8 +151,8 @@ app.post('/api/auth/login', async (req: Request, res: Response) => {
     // Set cookie
     res.cookie('token', token, {
       httpOnly: true,
-      secure: false,
-      sameSite: 'lax',
+      secure: isProd,
+      sameSite: isProd ? 'none' : 'lax',
       path: '/',
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
@@ -202,8 +204,8 @@ app.get('/api/auth/me', async (req: Request, res: Response) => {
 app.post('/api/auth/logout', (req: Request, res: Response) => {
   res.clearCookie('token', {
     httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
     path: '/'
   });
   return res.json({ message: 'Logged out successfully' });
