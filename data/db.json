@@ -1,0 +1,274 @@
+{
+  "users": [
+    {
+      "id": "admin-1",
+      "name": "Admin User",
+      "email": "admin@stayfinder.com",
+      "passwordHash": "$2b$10$L5mVrtqOVWEcjKsDqCrGiuj4O7f42INMaPjH1B/L0P9S5CzEhaumy",
+      "role": "admin",
+      "createdAt": "2026-06-01T00:00:00.000Z"
+    },
+    {
+      "id": "user-1",
+      "name": "Regular Traveler",
+      "email": "user@stayfinder.com",
+      "passwordHash": "$2b$10$L5mVrtqOVWEcjKsDqCrGiuj4O7f42INMaPjH1B/L0P9S5CzEhaumy",
+      "role": "user",
+      "createdAt": "2026-06-05T00:00:00.000Z"
+    },
+    {
+      "id": "usr-1783961463274",
+      "name": "Test User",
+      "email": "testuser@example.com",
+      "passwordHash": "$2b$10$q6ltU89S1iNP4zkzllf4kuoBnfzbsLV9L2cKUcNZI6.AWntz6NjGK",
+      "role": "user",
+      "createdAt": "2026-07-13T16:51:03.274Z"
+    },
+    {
+      "id": "usr-1783965381483",
+      "name": "riya",
+      "email": "sharmin123@gmail.com",
+      "passwordHash": "$2b$10$m0DU4n.uN7RAm2dg.U.Xg.YmA5DfcC7dTGqYlbONXRqZyT99wViYi",
+      "role": "user",
+      "createdAt": "2026-07-13T17:56:21.483Z"
+    },
+    {
+      "id": "usr-1783965428733",
+      "name": "sharmin",
+      "email": "sharmin1234@gmail.com",
+      "passwordHash": "$2b$10$hdWHnpj9waWpPhqEUzqe1Of2smL1OZ9l1pRV5IH1ljQlr1CUm0arC",
+      "role": "admin",
+      "createdAt": "2026-07-13T17:57:08.733Z"
+    }
+  ],
+  "listings": [
+    {
+      "title": "adfgs",
+      "shortDescription": "safgdhf",
+      "description": "fsgdhfjg",
+      "price": 300,
+      "location": "dhaka",
+      "category": "Mansions",
+      "dateAvailable": "2026-07-13",
+      "imageUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80"
+      ],
+      "ownerId": "user-1",
+      "ownerName": "Regular Traveler",
+      "priority": "high",
+      "specs": [
+        {
+          "label": "Guest Limit",
+          "value": "4 Adults"
+        },
+        {
+          "label": "Beds",
+          "value": "2 Bedrooms"
+        },
+        {
+          "label": "Wi-Fi",
+          "value": "Complimentary High-speed"
+        },
+        {
+          "label": "Availability",
+          "value": "Instant Booking"
+        }
+      ],
+      "id": "stay-1783962954763",
+      "rating": 5,
+      "reviews": [],
+      "createdAt": "2026-07-13"
+    },
+    {
+      "id": "stay-2",
+      "title": "Hideout Forest A-Frame Cabin",
+      "shortDescription": "Charming A-frame cabin tucked in a deep pine forest with warm wood accents.",
+      "description": "Unplug from the digital noise in this designer A-frame cabin. Built entirely from locally-sourced cedar and pine, the Hideout cabin features a wood-burning hot tub, outdoor cinema setup, and floor-to-ceiling windows showing the majestic forest. The property has a small stream running right through the backyard.",
+      "price": 180,
+      "rating": 4.8,
+      "location": "Sreemangal, Sylhet",
+      "category": "Cabins",
+      "dateAvailable": "2026-07-20",
+      "imageUrl": "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=800&q=80"
+      ],
+      "ownerId": "admin-1",
+      "ownerName": "StayFinder Elite",
+      "reviews": [
+        {
+          "id": "rev-3",
+          "userName": "Tanzim Hasan",
+          "rating": 5,
+          "comment": "Loved the fireplace and the forest sounds at night. The host was highly welcoming.",
+          "date": "2026-06-28"
+        }
+      ],
+      "priority": "medium",
+      "specs": [
+        {
+          "label": "Guest Limit",
+          "value": "4 Adults"
+        },
+        {
+          "label": "Beds",
+          "value": "2 Queen size"
+        },
+        {
+          "label": "Heating",
+          "value": "Wood Fireplace"
+        },
+        {
+          "label": "Hot Tub",
+          "value": "Outdoor Cedar Tub"
+        }
+      ],
+      "createdAt": "2026-06-18"
+    },
+    {
+      "id": "stay-4",
+      "title": "Secluded Eco Treehouse Sanctuary",
+      "shortDescription": "Suspended in a high canopy of old-growth rainforest trees, built with bamboo.",
+      "description": "Live out your treehouse fantasy in this custom bamboo structure suspended 30 feet above the forest floor. Built completely from treated bamboo and recycled teak, it features an open-air rain shower, secure suspension bridge entry, and organic hammocks looking over the rolling hills of the tea valley.",
+      "price": 130,
+      "rating": 4.7,
+      "location": "Sajek Valley, Rangamati",
+      "category": "Treehouses",
+      "dateAvailable": "2026-07-18",
+      "imageUrl": "https://images.unsplash.com/photo-1508333706533-1ab43ecb1606?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1508333706533-1ab43ecb1606?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80"
+      ],
+      "ownerId": "admin-1",
+      "ownerName": "StayFinder Elite",
+      "reviews": [
+        {
+          "id": "rev-5",
+          "userName": "Nafis Imtiaz",
+          "rating": 4.5,
+          "comment": "Waking up in the clouds of Sajek from a treehouse is a dream. A bit of climb, but totally worth it.",
+          "date": "2026-07-02"
+        }
+      ],
+      "priority": "low",
+      "specs": [
+        {
+          "label": "Guest Limit",
+          "value": "2 Adults"
+        },
+        {
+          "label": "Height",
+          "value": "30 feet above ground"
+        },
+        {
+          "label": "Shower",
+          "value": "Open-Air Rainfall"
+        },
+        {
+          "label": "Power",
+          "value": "100% Solar Powered"
+        }
+      ],
+      "createdAt": "2026-06-22"
+    },
+    {
+      "id": "stay-5",
+      "title": "Nordic Minimalist Loft Apartment",
+      "shortDescription": "Sleek, minimalist loft apartment with micro-cement floors and modern details.",
+      "description": "Located in the heart of the premium city quarter, this minimalist loft is a masterclass in Scandinavian industrial architecture. Features micro-cement floors, exposed brick walls, designer matte black hardware, and premium custom furniture. Floor to ceiling windows look out at the cityscape and light up the workspace.",
+      "price": 95,
+      "rating": 4.6,
+      "location": "Gulshan, Dhaka",
+      "category": "Apartments",
+      "dateAvailable": "2026-07-12",
+      "imageUrl": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=800&q=80"
+      ],
+      "ownerId": "admin-1",
+      "ownerName": "StayFinder Elite",
+      "reviews": [
+        {
+          "id": "rev-6",
+          "userName": "Farhana Yasmin",
+          "rating": 4.7,
+          "comment": "Super chic and right next to Gulshan's best cafés. Very fast internet and clean layout.",
+          "date": "2026-07-06"
+        }
+      ],
+      "priority": "medium",
+      "specs": [
+        {
+          "label": "Guest Limit",
+          "value": "2 Adults"
+        },
+        {
+          "label": "Beds",
+          "value": "1 Queen Loft bed"
+        },
+        {
+          "label": "Internet",
+          "value": "Fiber 100 Mbps"
+        },
+        {
+          "label": "Kitchen",
+          "value": "Fully equipped induction"
+        }
+      ],
+      "createdAt": "2026-06-24"
+    },
+    {
+      "id": "stay-6",
+      "title": "Infinity Sky Penthouse",
+      "shortDescription": "Ultra-luxury penthouse with private heated pool looking over the city skyline.",
+      "description": "High above the clouds, this double-story penthouse is designed for executive luxury. Complete with a private glass-edged swimming pool on the balcony, marble bathrooms, smart lights, acoustic sound system, and dedicated round-the-clock concierge services.",
+      "price": 390,
+      "rating": 4.9,
+      "location": "Banani, Dhaka",
+      "category": "Mansions",
+      "dateAvailable": "2026-08-10",
+      "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=800&q=80"
+      ],
+      "ownerId": "admin-1",
+      "ownerName": "StayFinder Elite",
+      "reviews": [
+        {
+          "id": "rev-7",
+          "userName": "Abrar Mahmood",
+          "rating": 5,
+          "comment": "Stunning night views of Dhaka. The private pool is unmatched. Truly luxury living.",
+          "date": "2026-07-09"
+        }
+      ],
+      "priority": "high",
+      "specs": [
+        {
+          "label": "Guest Limit",
+          "value": "4 Adults"
+        },
+        {
+          "label": "Size",
+          "value": "4500 Sq Ft"
+        },
+        {
+          "label": "Pool",
+          "value": "Heated sky pool"
+        },
+        {
+          "label": "Parking",
+          "value": "2 Secure slots"
+        }
+      ],
+      "createdAt": "2026-06-28"
+    }
+  ]
+}
