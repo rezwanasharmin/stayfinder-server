@@ -41,7 +41,7 @@ interface AuthenticatedRequest extends Request {
 
 // Middleware to authenticate user using JWT cookie
 const authenticate = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
-  const token = req.cookies.token;
+  const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
   if (!token) {
     return res.status(401).json({ error: 'Unauthorized. Please login.' });
   }
@@ -112,7 +112,8 @@ app.post('/api/auth/register', async (req: Request, res: Response) => {
         name: newUser.name,
         email: newUser.email,
         role: newUser.role
-      }
+      },
+      token
     });
 
   } catch (error: any) {
@@ -163,7 +164,8 @@ app.post('/api/auth/login', async (req: Request, res: Response) => {
         name: user.name,
         email: user.email,
         role: user.role
-      }
+      },
+      token
     });
 
   } catch (error: any) {
