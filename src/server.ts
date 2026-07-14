@@ -451,7 +451,11 @@ app.get('/api/stats', async (req: Request, res: Response) => {
 });
 
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`[StayFinder Server] Running on http://localhost:${PORT}`);
-});
+// Start server locally (if not run by Vercel Serverless environment)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`[StayFinder Server] Running locally on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
