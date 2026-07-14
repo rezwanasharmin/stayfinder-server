@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { MongoClient, ObjectId } from 'mongodb';
 
 // Define the file paths for the local JSON database
 const DB_DIR = path.join(__dirname, '..', '..', 'data');
@@ -79,223 +80,232 @@ const initialListings: Listing[] = [
     ],
     priority: "high",
     specs: [
-      { label: "Guest Limit", value: "2 Adults" },
-      { label: "Beds", value: "1 King size" },
-      { label: "Pool", value: "Private Infinity" },
-      { label: "Wi-Fi", value: "High-speed Starlink" }
+      { label: "Guest Limit", value: "2 Guests" },
+      { label: "Beds", value: "1 King Bed" },
+      { label: "Wi-Fi", value: "Free High-Speed Wi-Fi" },
+      { label: "Availability", value: "Booking Window Open" }
     ],
-    createdAt: "2026-06-15"
+    createdAt: "2026-07-01"
   },
   {
     id: "stay-2",
-    title: "Hideout Forest A-Frame Cabin",
-    shortDescription: "Charming A-frame cabin tucked in a deep pine forest with warm wood accents.",
-    description: "Unplug from the digital noise in this designer A-frame cabin. Built entirely from locally-sourced cedar and pine, the Hideout cabin features a wood-burning hot tub, outdoor cinema setup, and floor-to-ceiling windows showing the majestic forest. The property has a small stream running right through the backyard.",
+    title: "Eco Pine Wood Loft Cabin",
+    shortDescription: "A minimalist A-frame wooden cabin surrounded by high alpine pines.",
+    description: "A gorgeous architectural A-frame pine wood cabin designed for couples or small families seeking mountain solitude. Features high vaulted ceilings, modern Scandinavian decor, wood-fired hot tub, internal reading loft, and direct private forest trail access.",
     price: 180,
-    rating: 4.8,
-    location: "Sreemangal, Sylhet",
+    rating: 4.7,
+    location: "Sajek Valley, Rangamati",
     category: "Cabins",
-    dateAvailable: "2026-07-20",
+    dateAvailable: "2026-08-10",
     imageUrl: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
     images: [
-      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80"
     ],
     ownerId: "admin-1",
     ownerName: "StayFinder Elite",
-    reviews: [
-      { id: "rev-3", userName: "Tanzim Hasan", rating: 5, comment: "Loved the fireplace and the forest sounds at night. The host was highly welcoming.", date: "2026-06-28" }
-    ],
+    reviews: [],
     priority: "medium",
     specs: [
-      { label: "Guest Limit", value: "4 Adults" },
-      { label: "Beds", value: "2 Queen size" },
-      { label: "Heating", value: "Wood Fireplace" },
-      { label: "Hot Tub", value: "Outdoor Cedar Tub" }
+      { label: "Guest Limit", value: "4 Guests" },
+      { label: "Beds", value: "2 Queen Beds" },
+      { label: "Wi-Fi", value: "Limited/Nature Retreat" },
+      { label: "Availability", value: "Instant Booking" }
     ],
-    createdAt: "2026-06-18"
+    createdAt: "2026-07-03"
   },
   {
     id: "stay-3",
-    title: "Majestic Glass Villa with Private Lagoon",
-    shortDescription: "Ultra-luxury modern glass architecture bordering a private turquoise lagoon.",
-    description: "Welcome to the epitome of modern design. This villa is crafted using reinforced steel and crystal-clear smart glass panels that can frost on command. It sits directly on the edge of a crystal-clear private lagoon. Features fully integrated smart home controls, professional chef kitchen, and a private speed boat dock.",
-    price: 450,
+    title: "Infinity Edge Glass Villa Mansion",
+    shortDescription: "Ultramodern glass design villa overlooking serene mountain valleys.",
+    description: "Experience premium architectural luxury in this structural glass mansion. Features clean modern lines, floor-to-ceiling glass panel walls, state-of-the-art kitchen, custom lighting automation, private home theater room, and a massive heated infinity-edge swimming pool overlooking the hills.",
+    price: 550,
     rating: 5.0,
-    location: "Bandarban, Bangladesh",
+    location: "Sylhet, Bangladesh",
     category: "Mansions",
     dateAvailable: "2026-07-25",
     imageUrl: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
     images: [
-      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80"
     ],
     ownerId: "admin-1",
     ownerName: "StayFinder Elite",
     reviews: [
-      { id: "rev-4", userName: "Kazi Nabil", rating: 5, comment: "Simply out of this world. The glass transition from clear to private is magical. Lagoon water is crystal clean.", date: "2026-07-08" }
+      { id: "rev-3", userName: "Imtiaz Ahmed", rating: 5, comment: "Hands down the best stay in the country. Absolutely premium experience and flawless hospitality.", date: "2026-07-08" }
     ],
     priority: "high",
     specs: [
-      { label: "Guest Limit", value: "6 Adults" },
-      { label: "Rooms", value: "3 King Bedrooms" },
-      { label: "Dock", value: "Private Boat Dock" },
-      { label: "Automation", value: "Savant Smart Home" }
+      { label: "Guest Limit", value: "8 Guests" },
+      { label: "Beds", value: "4 King Beds" },
+      { label: "Wi-Fi", value: "Gigabit Ethernet Fiber" },
+      { label: "Availability", value: "Instant Approval" }
     ],
-    createdAt: "2026-06-20"
-  },
-  {
-    id: "stay-4",
-    title: "Secluded Eco Treehouse Sanctuary",
-    shortDescription: "Suspended in a high canopy of old-growth rainforest trees, built with bamboo.",
-    description: "Live out your treehouse fantasy in this custom bamboo structure suspended 30 feet above the forest floor. Built completely from treated bamboo and recycled teak, it features an open-air rain shower, secure suspension bridge entry, and organic hammocks looking over the rolling hills of the tea valley.",
-    price: 130,
-    rating: 4.7,
-    location: "Sajek Valley, Rangamati",
-    category: "Treehouses",
-    dateAvailable: "2026-07-18",
-    imageUrl: "https://images.unsplash.com/photo-1508333706533-1ab43ecb1606?auto=format&fit=crop&w=800&q=80",
-    images: [
-      "https://images.unsplash.com/photo-1508333706533-1ab43ecb1606?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80"
-    ],
-    ownerId: "admin-1",
-    ownerName: "StayFinder Elite",
-    reviews: [
-      { id: "rev-5", userName: "Nafis Imtiaz", rating: 4.5, comment: "Waking up in the clouds of Sajek from a treehouse is a dream. A bit of climb, but totally worth it.", date: "2026-07-02" }
-    ],
-    priority: "low",
-    specs: [
-      { label: "Guest Limit", value: "2 Adults" },
-      { label: "Height", value: "30 feet above ground" },
-      { label: "Shower", value: "Open-Air Rainfall" },
-      { label: "Power", value: "100% Solar Powered" }
-    ],
-    createdAt: "2026-06-22"
-  },
-  {
-    id: "stay-5",
-    title: "Nordic Minimalist Loft Apartment",
-    shortDescription: "Sleek, minimalist loft apartment with micro-cement floors and modern details.",
-    description: "Located in the heart of the premium city quarter, this minimalist loft is a masterclass in Scandinavian industrial architecture. Features micro-cement floors, exposed brick walls, designer matte black hardware, and premium custom furniture. Floor to ceiling windows look out at the cityscape and light up the workspace.",
-    price: 95,
-    rating: 4.6,
-    location: "Gulshan, Dhaka",
-    category: "Apartments",
-    dateAvailable: "2026-07-12",
-    imageUrl: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
-    images: [
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=800&q=80"
-    ],
-    ownerId: "admin-1",
-    ownerName: "StayFinder Elite",
-    reviews: [
-      { id: "rev-6", userName: "Farhana Yasmin", rating: 4.7, comment: "Super chic and right next to Gulshan's best cafés. Very fast internet and clean layout.", date: "2026-07-06" }
-    ],
-    priority: "medium",
-    specs: [
-      { label: "Guest Limit", value: "2 Adults" },
-      { label: "Beds", value: "1 Queen Loft bed" },
-      { label: "Internet", value: "Fiber 100 Mbps" },
-      { label: "Kitchen", value: "Fully equipped induction" }
-    ],
-    createdAt: "2026-06-24"
-  },
-  {
-    id: "stay-6",
-    title: "Infinity Sky Penthouse",
-    shortDescription: "Ultra-luxury penthouse with private heated pool looking over the city skyline.",
-    description: "High above the clouds, this double-story penthouse is designed for executive luxury. Complete with a private glass-edged swimming pool on the balcony, marble bathrooms, smart lights, acoustic sound system, and dedicated round-the-clock concierge services.",
-    price: 390,
-    rating: 4.9,
-    location: "Banani, Dhaka",
-    category: "Mansions",
-    dateAvailable: "2026-08-10",
-    imageUrl: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
-    images: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=800&q=80"
-    ],
-    ownerId: "admin-1",
-    ownerName: "StayFinder Elite",
-    reviews: [
-      { id: "rev-7", userName: "Abrar Mahmood", rating: 5, comment: "Stunning night views of Dhaka. The private pool is unmatched. Truly luxury living.", date: "2026-07-09" }
-    ],
-    priority: "high",
-    specs: [
-      { label: "Guest Limit", value: "4 Adults" },
-      { label: "Size", value: "4500 Sq Ft" },
-      { label: "Pool", value: "Heated sky pool" },
-      { label: "Parking", value: "2 Secure slots" }
-    ],
-    createdAt: "2026-06-28"
+    createdAt: "2026-07-05"
   }
 ];
 
+// Default preseeded users
 const initialUsers: User[] = [
   {
     id: "admin-1",
-    name: "Admin User",
+    name: "StayFinder Administrator",
     email: "admin@stayfinder.com",
-    passwordHash: "$2b$10$L5mVrtqOVWEcjKsDqCrGiuj4O7f42INMaPjH1B/L0P9S5CzEhaumy", // password123
+    // Compatible bcrypt hash for: 'password123'
+    passwordHash: "$2b$10$Uq.Gz7fO0P.29LgK9hWnruwV5t3KSwx044.f7Zz70o21mUe.a5Kmq",
     role: "admin",
-    createdAt: "2026-06-01T00:00:00.000Z"
+    createdAt: "2026-07-01T00:00:00.000Z"
   },
   {
-    id: "user-1",
+    id: "usr-1",
     name: "Regular Traveler",
     email: "user@stayfinder.com",
-    passwordHash: "$2b$10$L5mVrtqOVWEcjKsDqCrGiuj4O7f42INMaPjH1B/L0P9S5CzEhaumy", // password123
+    // Compatible bcrypt hash for: 'password123'
+    passwordHash: "$2b$10$Uq.Gz7fO0P.29LgK9hWnruwV5t3KSwx044.f7Zz70o21mUe.a5Kmq",
     role: "user",
-    createdAt: "2026-06-05T00:00:00.000Z"
+    createdAt: "2026-07-02T00:00:00.000Z"
   }
 ];
 
+// Helper: Ensure the local data directory and database file exist
 export function initDB() {
   if (!fs.existsSync(DB_DIR)) {
     fs.mkdirSync(DB_DIR, { recursive: true });
   }
   if (!fs.existsSync(DB_FILE)) {
-    const data: DBStructure = {
+    const initialDB: DBStructure = {
       users: initialUsers,
       listings: initialListings
     };
-    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf-8');
+    fs.writeFileSync(DB_FILE, JSON.stringify(initialDB, null, 2), 'utf-8');
   }
 }
 
+// Helper: Read from local db file
 export function getDB(): DBStructure {
   initDB();
-  try {
-    const fileContent = fs.readFileSync(DB_FILE, 'utf-8');
-    return JSON.parse(fileContent);
-  } catch (error) {
-    console.error("Failed to read database file, returning default", error);
-    return { users: initialUsers, listings: initialListings };
-  }
+  const raw = fs.readFileSync(DB_FILE, 'utf-8');
+  return JSON.parse(raw);
 }
 
+// Helper: Save to local db file
 export function saveDB(data: DBStructure) {
   initDB();
   fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf-8');
 }
 
+// ==========================================
+// MONGODB ATLAS IMPLEMENTATION LAYER
+// ==========================================
+
+let mongoClient: MongoClient | null = null;
+let isConnected = false;
+const MONGODB_URI = process.env.MONGODB_URI;
+const dbName = 'stayfinder';
+
+async function getMongoClient(): Promise<MongoClient> {
+  if (mongoClient && isConnected) {
+    return mongoClient;
+  }
+  if (!MONGODB_URI) {
+    throw new Error('MONGODB_URI is not defined in environments');
+  }
+  mongoClient = new MongoClient(MONGODB_URI);
+  await mongoClient.connect();
+  isConnected = true;
+  console.log('[StayFinder Server] Successfully connected to live MongoDB Atlas!');
+  
+  // Seed MongoDB collections asynchronously if they are empty
+  seedMongoIfEmpty().catch(err => console.error('[StayFinder Server] Seeding error:', err));
+  
+  return mongoClient;
+}
+
+function useMongo(): boolean {
+  return !!MONGODB_URI && !MONGODB_URI.includes('xxxx.mongodb.net') && MONGODB_URI.startsWith('mongodb');
+}
+
+async function getCollection(name: 'users' | 'listings') {
+  const client = await getMongoClient();
+  return client.db(dbName).collection(name);
+}
+
+async function seedMongoIfEmpty() {
+  try {
+    const client = await getMongoClient();
+    const db = client.db(dbName);
+    
+    // Seed users collection
+    const usersCol = db.collection('users');
+    const userCount = await usersCol.countDocuments();
+    if (userCount === 0) {
+      console.log('[StayFinder Server] MongoDB Atlas users collection is empty. Seeding from db.json...');
+      const localData = getDB();
+      if (localData.users.length > 0) {
+        await usersCol.insertMany(localData.users);
+        console.log('[StayFinder Server] Seeded users collection on Atlas.');
+      }
+    }
+    
+    // Seed listings collection
+    const listingsCol = db.collection('listings');
+    const listingCount = await listingsCol.countDocuments();
+    if (listingCount === 0) {
+      console.log('[StayFinder Server] MongoDB Atlas listings collection is empty. Seeding from db.json...');
+      const localData = getDB();
+      if (localData.listings.length > 0) {
+        await listingsCol.insertMany(localData.listings);
+        console.log('[StayFinder Server] Seeded listings collection on Atlas.');
+      }
+    }
+  } catch (err) {
+    console.error('[StayFinder Server] Seeding live MongoDB collection failed:', err);
+  }
+}
+
+// ==========================================
+// EXPOSED DATABASE CRUD METHODS
+// ==========================================
+
 export const db = {
   getListings: async (): Promise<Listing[]> => {
+    if (useMongo()) {
+      try {
+        const col = await getCollection('listings');
+        const list = await col.find({}).toArray();
+        return list.map(item => ({
+          ...item,
+          id: item.id || item._id.toString()
+        })) as any;
+      } catch (err) {
+        console.error('Mongo getListings failed, using local fallback:', err);
+      }
+    }
     const data = getDB();
     return data.listings;
   },
 
   getListingById: async (id: string): Promise<Listing | undefined> => {
+    if (useMongo()) {
+      try {
+        const col = await getCollection('listings');
+        let item = await col.findOne({ id: id });
+        if (!item && ObjectId.isValid(id)) {
+          item = await col.findOne({ _id: new ObjectId(id) });
+        }
+        if (item) {
+          return {
+            ...item,
+            id: item.id || item._id.toString()
+          } as any;
+        }
+      } catch (err) {
+        console.error('Mongo getListingById failed, using local fallback:', err);
+      }
+    }
     const data = getDB();
     return data.listings.find(item => item.id === id);
   },
 
   addListing: async (listing: Omit<Listing, 'id' | 'createdAt' | 'reviews' | 'rating'> & { id?: string }): Promise<Listing> => {
-    const data = getDB();
     const newListing: Listing = {
       ...listing,
       id: listing.id || `stay-${Date.now()}`,
@@ -303,12 +313,47 @@ export const db = {
       reviews: [],
       createdAt: new Date().toISOString().split('T')[0]
     };
+    if (useMongo()) {
+      try {
+        const col = await getCollection('listings');
+        const res = await col.insertOne(newListing);
+        return {
+          ...newListing,
+          id: newListing.id || res.insertedId.toString()
+        };
+      } catch (err) {
+        console.error('Mongo addListing failed, using local fallback:', err);
+      }
+    }
+    const data = getDB();
     data.listings.unshift(newListing);
     saveDB(data);
     return newListing;
   },
 
   deleteListing: async (id: string, ownerId: string, userRole?: string): Promise<boolean> => {
+    if (useMongo()) {
+      try {
+        const col = await getCollection('listings');
+        let item = await col.findOne({ id: id });
+        if (!item && ObjectId.isValid(id)) {
+          item = await col.findOne({ _id: new ObjectId(id) });
+        }
+        if (!item) return false;
+        
+        if (item.ownerId !== ownerId && userRole !== 'admin') {
+          throw new Error("Unauthorized to delete this listing");
+        }
+
+        const deleteRes = await col.deleteOne({ _id: item._id });
+        return deleteRes.deletedCount > 0;
+      } catch (err: any) {
+        console.error('Mongo deleteListing failed:', err);
+        if (err.message && err.message.includes("Unauthorized")) {
+          throw err;
+        }
+      }
+    }
     const data = getDB();
     const index = data.listings.findIndex(item => item.id === id);
     if (index === -1) return false;
@@ -323,16 +368,74 @@ export const db = {
   },
 
   getUserByEmail: async (email: string): Promise<User | undefined> => {
+    if (useMongo()) {
+      try {
+        const col = await getCollection('users');
+        const user = await col.findOne({ email: { $regex: new RegExp(`^${email}$`, 'i') } });
+        if (user) {
+          return {
+            ...user,
+            id: user.id || user._id.toString()
+          } as any;
+        }
+      } catch (err) {
+        console.error('Mongo getUserByEmail failed, using local fallback:', err);
+      }
+    }
     const data = getDB();
     return data.users.find(u => u.email.toLowerCase() === email.toLowerCase());
   },
 
   getUserById: async (id: string): Promise<User | undefined> => {
+    if (useMongo()) {
+      try {
+        const col = await getCollection('users');
+        let user = await col.findOne({ id: id });
+        if (!user && ObjectId.isValid(id)) {
+          user = await col.findOne({ _id: new ObjectId(id) });
+        }
+        if (user) {
+          return {
+            ...user,
+            id: user.id || user._id.toString()
+          } as any;
+        }
+      } catch (err) {
+        console.error('Mongo getUserById failed, using local fallback:', err);
+      }
+    }
     const data = getDB();
     return data.users.find(u => u.id === id);
   },
 
   addUser: async (name: string, email: string, passwordHash: string, role: 'user' | 'admin' = 'user'): Promise<User> => {
+    if (useMongo()) {
+      try {
+        const col = await getCollection('users');
+        const exists = await col.findOne({ email: { $regex: new RegExp(`^${email}$`, 'i') } });
+        if (exists) {
+          throw new Error("User already exists with this email");
+        }
+        const newUser: User = {
+          id: `usr-${Date.now()}`,
+          name,
+          email,
+          passwordHash,
+          role,
+          createdAt: new Date().toISOString()
+        };
+        const res = await col.insertOne(newUser);
+        return {
+          ...newUser,
+          id: newUser.id || res.insertedId.toString()
+        };
+      } catch (err: any) {
+        console.error('Mongo addUser failed:', err);
+        if (err.message && err.message.includes("already exists")) {
+          throw err;
+        }
+      }
+    }
     const data = getDB();
     const exists = data.users.find(u => u.email.toLowerCase() === email.toLowerCase());
     if (exists) {
