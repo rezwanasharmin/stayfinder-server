@@ -130,53 +130,6 @@
       "createdAt": "2026-06-18"
     },
     {
-      "id": "stay-4",
-      "title": "Secluded Eco Treehouse Sanctuary",
-      "shortDescription": "Suspended in a high canopy of old-growth rainforest trees, built with bamboo.",
-      "description": "Live out your treehouse fantasy in this custom bamboo structure suspended 30 feet above the forest floor. Built completely from treated bamboo and recycled teak, it features an open-air rain shower, secure suspension bridge entry, and organic hammocks looking over the rolling hills of the tea valley.",
-      "price": 130,
-      "rating": 4.7,
-      "location": "Sajek Valley, Rangamati",
-      "category": "Treehouses",
-      "dateAvailable": "2026-07-18",
-      "imageUrl": "https://images.unsplash.com/photo-1508333706533-1ab43ecb1606?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1508333706533-1ab43ecb1606?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80"
-      ],
-      "ownerId": "admin-1",
-      "ownerName": "StayFinder Elite",
-      "reviews": [
-        {
-          "id": "rev-5",
-          "userName": "Nafis Imtiaz",
-          "rating": 4.5,
-          "comment": "Waking up in the clouds of Sajek from a treehouse is a dream. A bit of climb, but totally worth it.",
-          "date": "2026-07-02"
-        }
-      ],
-      "priority": "low",
-      "specs": [
-        {
-          "label": "Guest Limit",
-          "value": "2 Adults"
-        },
-        {
-          "label": "Height",
-          "value": "30 feet above ground"
-        },
-        {
-          "label": "Shower",
-          "value": "Open-Air Rainfall"
-        },
-        {
-          "label": "Power",
-          "value": "100% Solar Powered"
-        }
-      ],
-      "createdAt": "2026-06-22"
-    },
-    {
       "id": "stay-5",
       "title": "Nordic Minimalist Loft Apartment",
       "shortDescription": "Sleek, minimalist loft apartment with micro-cement floors and modern details.",
