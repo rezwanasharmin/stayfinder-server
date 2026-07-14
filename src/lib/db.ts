@@ -149,8 +149,8 @@ const initialUsers: User[] = [
     id: "admin-1",
     name: "StayFinder Administrator",
     email: "admin@stayfinder.com",
-    // Compatible bcrypt hash for: 'password123'
-    passwordHash: "$2b$10$Uq.Gz7fO0P.29LgK9hWnruwV5t3KSwx044.f7Zz70o21mUe.a5Kmq",
+    // Compatible bcrypt hash for: 'stayfinderAdmin2026!'
+    passwordHash: "$2a$10$b0ngiA6a7HjmULWC/QGqoen1MIX95NUlUFmqazFpoXaW8imw9cXvi",
     role: "admin",
     createdAt: "2026-07-01T00:00:00.000Z"
   },
@@ -242,6 +242,27 @@ async function seedMongoIfEmpty() {
       if (localData.users.length > 0) {
         await usersCol.insertMany(localData.users);
         console.log('[StayFinder Server] Seeded users collection on Atlas.');
+      }
+    }
+
+    // Force update preseeded admin password hash on start
+    const adminNewHash = "$2a$10$b0ngiA6a7HjmULWC/QGqoen1MIX95NUlUFmqazFpoXaW8imw9cXvi";
+    await usersCol.updateOne(
+      { email: 'admin@stayfinder.com' },
+      { $set: { passwordHash: adminNewHash } }
+    );
+
+    // Sync local db.json if it exists
+    if (fs.existsSync(DB_FILE)) {
+      try {
+        const localData = getDB();
+        const adminIdx = localData.users.findIndex(u => u.email === 'admin@stayfinder.com');
+        if (adminIdx !== -1) {
+          localData.users[adminIdx].passwordHash = adminNewHash;
+          saveDB(localData);
+        }
+      } catch (e) {
+        console.error('[StayFinder Server] Sync local db admin hash error:', e);
       }
     }
     
